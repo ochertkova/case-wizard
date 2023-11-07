@@ -45,7 +45,7 @@ function App() {
             ></TextField>
           </FormControl>
           <Button variant="contained" type="submit">
-            Get nominative case
+            Get dictionary form
           </Button>
         </Stack>
       </Box>

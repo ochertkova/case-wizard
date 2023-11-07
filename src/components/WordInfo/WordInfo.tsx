@@ -10,7 +10,7 @@ const getWordType = (wordTypeCode: String) => {
 };
 
 interface WordInfoProps {
-  word: WordDef
+  word: WordDef;
 }
 
 const WordInfo = ({ word }: WordInfoProps) => {
@@ -18,7 +18,7 @@ const WordInfo = ({ word }: WordInfoProps) => {
   return (
     <Box padding={3}>
       <Stack>
-        <Typography>Nominative case : {word.nominative}</Typography>
+        <Typography>Dictionary form : {word.dictionary_form}</Typography>
         <Typography>Type of Word (Finnish): {word.type_finnish}</Typography>
         <Typography>Type of Word (Common): {commonWordType}</Typography>
         <Typography>Case: {word.case}</Typography>
