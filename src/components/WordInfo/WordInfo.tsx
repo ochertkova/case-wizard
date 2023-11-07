@@ -9,15 +9,19 @@ const getWordType = (wordTypeCode: String) => {
   }
 };
 
-const WordInfo = (props: WordDef) => {
-  const commonWordType = getWordType(props.word_type);
+interface WordInfoProps {
+  word: WordDef
+}
+
+const WordInfo = ({ word }: WordInfoProps) => {
+  const commonWordType = getWordType(word.word_type);
   return (
     <Box padding={3}>
       <Stack>
-        <Typography>Nominative case : {props.nominative}</Typography>
-        <Typography>Type of Word (Finnish): {props.type_finnish}</Typography>
+        <Typography>Nominative case : {word.nominative}</Typography>
+        <Typography>Type of Word (Finnish): {word.type_finnish}</Typography>
         <Typography>Type of Word (Common): {commonWordType}</Typography>
-        <Typography> Case: {props.case}</Typography>
+        <Typography>Case: {word.case}</Typography>
       </Stack>
     </Box>
   );
