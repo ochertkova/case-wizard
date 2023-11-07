@@ -6,7 +6,7 @@ test('renders correct result', () => {
     const wordDef: WordDef = {
       word_type: 'ADJ',
       nominative: 'nopea',
-      case: Case.PARTITIVE,
+      case: 'PARTITIVE' as unknown as Case, // weird hack, doesn't work otherwise
       type_finnish: 'nominityyppi'
     };
     
