@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./App.css";
 import axios from "axios";
 import { FormControl, TextField, Stack, Button, Box } from "@mui/material";
 import WordInfo from "./components/WordInfo/WordInfo";
@@ -7,7 +6,7 @@ import WordInfo from "./components/WordInfo/WordInfo";
 const BASE_URL = "http://localhost:3004";
 
 function App() {
-  const [result, setResult] = useState({} as WordDef);
+  const [result, setResult] = useState<WordDef | undefined>(undefined);
   const [searchText, setSearchText] = useState("");
 
   console.log("search text is", searchText);
@@ -18,15 +17,6 @@ function App() {
       .then((resp) => resp.data)
       .then(setResult);
   };
-
-  console.log(result);
-
-  const {
-    type_finnish: type_f,
-    nominative: nom,
-    word_type: wt,
-    case: wcase,
-  } = result;
 
   return (
     <Stack
@@ -59,15 +49,8 @@ function App() {
           </Button>
         </Stack>
       </Box>
-      {result !== null && <WordInfo {...result} />}
+      {result && <WordInfo word={result} />}
     </Stack>
-    // <>
-    //   <input
-    //     type="text"
-    //     onChange={(e) => setSearchText(e.target.value)}
-    //   ></input>
-    //   <input type="button" onClick={doSearch} />
-    // </>
   );
 }
 

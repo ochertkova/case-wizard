@@ -4,6 +4,6 @@ import App from './App';
 
 test('renders learn react link', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const searchButton = screen.getByText(/GET NOMINATIVE CASE/i);
+  expect(searchButton).toBeInTheDocument();
 });
