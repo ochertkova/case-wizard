@@ -4,6 +4,6 @@ import App from './App';
 
 test('renders learn react link', () => {
   render(<App />);
-  const searchButton = screen.getByText(/GET NOMINATIVE CASE/i);
+  const searchButton = screen.getByText(/GET DICTIONARY FORM/i);
   expect(searchButton).toBeInTheDocument();
 });

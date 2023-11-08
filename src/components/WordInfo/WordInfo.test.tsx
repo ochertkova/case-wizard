@@ -17,7 +17,7 @@ test("renders correct result", () => {
   render(<WordInfo word={wordDef} />);
   const dictionary_form = screen.getByText("Dictionary form : nopea");
   const type_finnish = screen.getByText(
-    "Type of Word (Finnish) : nominityyppi"
+    "Type of Word (Finnish): nominityyppi"
   );
   const word_type = screen.getByText("Type of Word (Common): Adjective");
   const word_case = screen.getByText("Case: NOMINATIVE");
