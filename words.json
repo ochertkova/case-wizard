@@ -3,7 +3,11 @@
     "type_finnish": "name (nominityyppi)",
     "dictionary_form": "helppo",
     "word_type": "ADJ",
-    "case": "PARTITIVE"
+    "case": "PARTITIVE",
+    "count": "SINGLE",
+    "extra": {
+      "comparison": "COMPARATIVE"
+    }
   },
   "helppo": {}
 }
