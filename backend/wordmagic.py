@@ -4,6 +4,11 @@ import libvoikko
 
 if os.name == "nt":
     libvoikko.Voikko.setLibrarySearchPath("./voikko")
+elif sys.platform == "darwin":
+    libvoikko.Voikko.setLibrarySearchPath("/usr/local/Cellar/libvoikko/4.3.2/lib")
+else:
+    sys.stderr.writelines(["You OS is not supported!"])
+    sys.exit(-1)
 
 v = libvoikko.Voikko(u"fi", path="./voikko")
 
