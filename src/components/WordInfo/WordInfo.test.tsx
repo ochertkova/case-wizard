@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import WordInfo from "./WordInfo";
 
-test("renders correct result", () => {
+test("renders correct adjective", () => {
   const wordDef: WordDef = {
     word_type: "ADJ",
     dictionary_form: "nopea",
@@ -16,9 +16,7 @@ test("renders correct result", () => {
 
   render(<WordInfo word={wordDef} />);
   const dictionary_form = screen.getByText("Dictionary form : nopea");
-  const type_finnish = screen.getByText(
-    "Type of Word (Finnish): nominityyppi"
-  );
+  const type_finnish = screen.getByText("Type of Word (Finnish): nominityyppi");
   const word_type = screen.getByText("Type of Word (Common): Adjective");
   const word_case = screen.getByText("Case: NOMINATIVE");
   const count = screen.getByText("Count: SINGLE");
