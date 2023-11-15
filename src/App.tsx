@@ -9,8 +9,6 @@ function App() {
   const [result, setResult] = useState<WordDef | undefined>(undefined);
   const [searchText, setSearchText] = useState("");
 
-  console.log("search text is", searchText);
-
   const doSearch = () => {
     axios
       .get(`${BASE_URL}/${searchText}`)
