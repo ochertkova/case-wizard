@@ -2,8 +2,7 @@ from typing import Annotated
 
 from fastapi import FastAPI, Path, Query
 
-import database
-import wordmagic
+import database, wordmagic, schemas
 
 app = FastAPI()
 
@@ -19,6 +18,6 @@ async def health():
 async def echo(number: Annotated[int, Query(title="number to echo from db")]):
     return await database.echo_number(number)
 
-@app.get("/word/{word_form}", tags=["word magic"])
+@app.get("/word/{word_form}", response_model=schemas.WordInfo, tags=["word magic"])
 async def word_info(word_form: str):
     return wordmagic.get_word_info(word_form)

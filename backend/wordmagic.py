@@ -2,6 +2,8 @@ import os
 import sys
 import libvoikko
 
+import schemas
+
 if os.name == "nt":
     libvoikko.Voikko.setLibrarySearchPath("./voikko")
 elif sys.platform == "darwin":
@@ -17,10 +19,11 @@ def get_word_info(word_form: str):
     try:
         voikko_dict = v.analyze(word_form)
         word_data = voikko_dict[0]
-        return {
-            "nominative_case": word_data["BASEFORM"],
-            "part_of_speech": word_data["CLASS"] 
-        }
+
+        if word_data["CLASS"] in ["nimisana", "laatusana"]:
+            return schemas.NameBase(type_finnish=word_data["CLASS"],dictionary_form=word_data["BASEFORM"],word_type="Adjective", case=word_data["SIJAMUOTO"])
+
+        return schemas.WordBase(type_finnish=word_data["CLASS"],dictionary_form=word_data["BASEFORM"],word_type="Adjective")
     except:
         return {"error": "Word {word} not found".format(word=word_form)}
 
