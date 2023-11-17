@@ -1,11 +1,22 @@
 from typing import Annotated
 
 from fastapi import FastAPI, Path, Query
+from fastapi.middleware.cors import CORSMiddleware
 
 import database, wordmagic, schemas
 
 app = FastAPI()
+origins = [
+    "http://localhost:3000"
+]
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 @app.get("/word-length/{word}", tags=["words"])
 async def word_length(word: Annotated[str, Path(title="The word the length of which to return")]):
     return len(word)

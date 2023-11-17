@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-type WordInfo= WordBase | NameBase
+type WordInfo= WordBase | NameBase | Error
 
 class WordBase(BaseModel):
     type_finnish: str
@@ -11,8 +11,10 @@ class WordBase(BaseModel):
     # extra: ExtraAdj | ExtraNoun
 
 class NameBase(WordBase):
-    case: str
+    word_case: str
 
+class Error(BaseModel):
+    error: str
 
 # class ItemBase(BaseModel):
 #     title: str

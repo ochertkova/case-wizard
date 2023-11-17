@@ -5,7 +5,7 @@ const getWordType = (wordTypeCode: String) => {
     case "ADJ":
       return "Adjective";
     default:
-      return "Unknown word type";
+      return wordTypeCode;
   }
 };
 
