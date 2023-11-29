@@ -4,23 +4,23 @@ import WordInfo from "./WordInfo";
 
 test("renders correct adjective", () => {
   const wordDef: WordDef = {
-    word_type: "ADJ",
+    word_type: "adjective",
     dictionary_form: "nopea",
-    case: "NOMINATIVE" as unknown as Case,
-    type_finnish: "nominityyppi",
-    count: "SINGLE" as unknown as Count,
+    case: "nominative" as unknown as Case,
+    type_finnish: "laatusana",
+    count: "single" as unknown as Count,
     extra: {
-      comparison: "COMPARATIVE" as unknown as Comparison,
+      comparison: "comparative" as unknown as Comparison,
     },
   };
 
   render(<WordInfo word={wordDef} />);
-  const dictionary_form = screen.getByText("Dictionary form : nopea");
-  const type_finnish = screen.getByText("Type of Word (Finnish): nominityyppi");
+  const dictionary_form = screen.getByText("Dictionary form: nopea");
+  const type_finnish = screen.getByText("Type of Word (Finnish): laatusana");
   const word_type = screen.getByText("Type of Word (Common): Adjective");
-  const word_case = screen.getByText("Case: NOMINATIVE");
-  const count = screen.getByText("Count: SINGLE");
-  const extra_info = screen.getByText("Extra info: COMPARATIVE");
+  const word_case = screen.getByText("Case: nominative");
+  const count = screen.getByText("Count: single");
+  const extra_info = screen.getByText("Extra info: comparative");
   expect(dictionary_form).toBeInTheDocument();
   expect(type_finnish).toBeInTheDocument();
   expect(word_type).toBeInTheDocument();
