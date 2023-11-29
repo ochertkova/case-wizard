@@ -2,10 +2,10 @@ import { Box, Stack, Typography } from "@mui/material";
 
 const getWordType = (wordTypeCode: String) => {
   switch (wordTypeCode) {
-    case "ADJ":
+    case "adjective":
       return "Adjective";
     default:
-      return "Unknown word type";
+      return wordTypeCode;
   }
 };
 
@@ -14,7 +14,7 @@ const getExtraInfo = (
   wordTypeCode: String
 ) => {
   switch (wordTypeCode) {
-    case "ADJ":
+    case "adjective":
       let { comparison } = extrainfo as ExtraAdj;
       return comparison;
   }
@@ -30,7 +30,7 @@ const WordInfo = ({ word }: WordInfoProps) => {
   return (
     <Box padding={3}>
       <Stack>
-        <Typography>Dictionary form : {word.dictionary_form}</Typography>
+        <Typography>Dictionary form: {word.dictionary_form}</Typography>
         <Typography>Type of Word (Finnish): {word.type_finnish}</Typography>
         <Typography>Type of Word (Common): {commonWordType}</Typography>
         <Typography>Case: {word.case}</Typography>
