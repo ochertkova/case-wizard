@@ -12,6 +12,7 @@ alembic = "*"
 psycopg2 = "*"
 python-dotenv = "*"
 libvoikko = "*"
+pytest = "*"
 
 [dev-packages]
 
@@ -21,3 +22,4 @@ python_version = "3.12"
 [scripts]
 devserver = "uvicorn main:app --reload"
 wordmagic = "python wordmagic.py"
+test = "pytest test_single_word.py"
