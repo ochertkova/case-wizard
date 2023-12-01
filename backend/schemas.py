@@ -6,8 +6,7 @@ class WordBase(BaseModel):
     type_finnish: str
     dictionary_form: str
     word_type: str
-    # case: Case
-    # count: Count
+    #word_case: str
     # extra: ExtraAdj | ExtraNoun
 
 class NameBase(WordBase):
@@ -18,6 +17,16 @@ class Error(BaseModel):
     error: str
 
 class Adjective(NameBase):
+    comparison: str
+
+class Verb(WordBase):
+    person: str
+    mood: str
+    number: str
+    tense: str
+    negative: bool
+
+class Adverb(WordBase):
     comparison: str
 
 # class ItemBase(BaseModel):
