@@ -9,10 +9,10 @@ uvicorn = "*"
 fastapi-sqlalchemy = "*"
 pydantic = "*"
 alembic = "*"
-psycopg2 = "*"
 python-dotenv = "*"
 libvoikko = "*"
 pytest = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
