@@ -3,7 +3,7 @@ import axios from "axios";
 import { FormControl, TextField, Stack, Button, Box } from "@mui/material";
 import WordInfo from "./components/WordInfo/WordInfo";
 
-const BASE_URL = "http://localhost:8888/word";
+const BASE_URL = "/word";
 
 function App() {
   const [result, setResult] = useState<WordDef | undefined>(undefined);
