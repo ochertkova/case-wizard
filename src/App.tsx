@@ -47,7 +47,7 @@ function App() {
           </Button>
         </Stack>
       </Box>
-      {result && <WordInfo word={result} />}
+      {result && <WordInfo word={result}/>}
     </Stack>
   );
 }

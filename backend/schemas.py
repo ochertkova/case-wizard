@@ -1,13 +1,21 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
+from pydantic.alias_generators import to_camel
+
 
 type WordInfo = WordBase | NameBase | Adjective | Error
 
 class WordBase(BaseModel):
+    model_config = ConfigDict(
+        alias_generator=to_camel,
+        populate_by_name=True,
+        from_attributes=True
+    )
     type_finnish: str
     dictionary_form: str
     word_type: str
     #word_case: str
     # extra: ExtraAdj | ExtraNoun
+
 
 class NameBase(WordBase):
     word_case: str
