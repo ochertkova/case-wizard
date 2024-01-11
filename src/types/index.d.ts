@@ -1,10 +1,10 @@
 type WordDef = {
-  type_finnish: string;
-  dictionary_form: string;
-  word_type: string;
-  case: Case;
-  count: Count;
-  extra: ExtraAdj | ExtraNoun;
+  typeFinnish: string;
+  dictionaryForm: string;
+  wordType: string;
+  wordCase?: Case;
+  number?: Count;
+  comparison?: Comparison;
 };
 
 enum Case {
@@ -19,14 +19,14 @@ enum Comparison {
 }
 
 enum Count {
-  SINGLE,
-  PLURAL,
+  SINGULAR,
+  PLURAL
 }
 
 enum Person {
   FIRST,
   SECOND,
-  THIRD,
+  THIRD
 }
 
 type ExtraAdj = {
@@ -34,5 +34,6 @@ type ExtraAdj = {
 };
 
 type ExtraNoun = {
-  person: Person;
+  wordCase: Case;
+  wordNumber: Count
 };
